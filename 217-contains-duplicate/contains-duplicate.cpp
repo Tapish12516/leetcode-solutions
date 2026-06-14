@@ -1,15 +1,13 @@
 class Solution {
 public:
-    bool containsDuplicate(vector<int>& nums) {
-        unordered_map<int,int> mp;
+    bool containsDuplicate(vector<int>& nums){
+        unordered_set<int> set;
 
-        for(int num : nums){
-            mp[num]++;
+        for(int i =0 ; i<nums.size() ; i++){
+            if(set.find(nums[i]) != set.end()) return true;
 
-            if(mp[num] > 1)
-                return true;
+            set.insert(nums[i]);
         }
-
         return false;
     }
 };
@@ -18,13 +16,14 @@ public:
 // class Solution {
 // public:
 //     bool containsDuplicate(vector<int>& nums) {
-//         unordered_map<int , int > mapp;
-//         for(int i = 0; i < nums.size() ; i++){
-//             mapp[nums[i]]++;
-//         }                                                                    // TC and SC = O(N)
-//         for(int i = 0; i < nums.size() ; i++){                               // build full map and then traverses again 
-//             if(mapp[nums[i]] >= 2) return true;
+//         unordered_map<int,int> mp;
+
+//         for(int num : nums){
+//             mp[num]++;                                              // TC and SC = O(N)
+//             if(mp[num] > 1)                                         // build full map and then traverses again 
+//                 return true;
 //         }
+
 //         return false;
 //     }
 // };
