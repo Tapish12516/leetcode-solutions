@@ -1,0 +1,15 @@
+class Solution {
+public:
+    int countOdds(int low, int high) {
+        return (high+1)/2 - low/2;
+    }
+};
+
+
+
+
+        // int count = 0;                                          //6/10 O(N) it can be reduced
+        // for(int i = low ; i <= high ; i++){
+        //     if(i%2 != 0) count++;
+        // }
+        // return count;
