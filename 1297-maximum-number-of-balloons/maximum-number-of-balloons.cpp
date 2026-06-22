@@ -1,7 +1,7 @@
 class Solution {
 public:
     int maxNumberOfBalloons(string text) {
-        unordered_map<char , int> mapp;
+        unordered_map<char , int> mapp;                     //array can be used instead
         string s = "balloon";
         for( int i = 0 ; i < 7 ; i++){
             mapp[s[i]] = 0 ;
@@ -20,7 +20,24 @@ public:
 };
 
 
+// class Solution {
+// public:
+//     int maxNumberOfBalloons(string text) {
+//         int freq[26] = {0};
 
+//         for(char ch : text) {
+//             freq[ch - 'a']++;
+//         }
+//                                                                              optimal solution
+//         return min({
+//             freq['b' - 'a'],
+//             freq['a' - 'a'],
+//             freq['l' - 'a'] / 2,
+//             freq['o' - 'a'] / 2,
+//             freq['n' - 'a']
+//         });
+//     }
+// };
 
 // for( int i = 0 ; i < 7 ; i++){
         //     for(int j = 0 ; j < text.length() ; j++){
