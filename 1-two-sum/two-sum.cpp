@@ -8,9 +8,7 @@ public:
             if( numbers.find(comp) != numbers.end() ){                        //find function returns the iterator if it finds the value
                 return {numbers[comp] , i};
             }
-
             numbers[nums[i]] = i;
-
         }
         return {};
     }
