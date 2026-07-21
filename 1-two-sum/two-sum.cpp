@@ -4,7 +4,6 @@ public:
         unordered_map<int , int> numbers;
         for(int i = 0 ; i < nums.size() ; i++){
             int comp = target - nums[i];
-
             if( numbers.find(comp) != numbers.end() ){                        //find function returns the iterator if it finds the value
                 return {numbers[comp] , i};
             }
