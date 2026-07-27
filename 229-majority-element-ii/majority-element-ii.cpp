@@ -5,9 +5,9 @@ public:
         unordered_map<int , int> mapp;
         vector<int> answer;
         for(int i = 0 ; i < n ; i++){
-            mapp[nums[i]]++;
+            mapp[nums[i]]++;                                            //O(N) Tc and O(n) SC
         }
-        for(auto mapelement : mapp){
+        for(const auto& mapelement : mapp){
             int element = mapelement.first;
             int count = mapelement.second;
 
