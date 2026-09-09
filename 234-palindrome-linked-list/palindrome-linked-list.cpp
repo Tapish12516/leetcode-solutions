@@ -10,17 +10,10 @@
  */
 class Solution {
 public:
-    // ListNode* reverseList(ListNode* head) {
-    //     if (head == NULL || head->next == NULL)  return head;
-    //     ListNode* newhead = reverseList(head->next);
-    //     head->next->next = head;                                 //recursive taking more space 
-    //     head->next = NULL;
-    //     return newhead;
-    // }
     ListNode* reverse(ListNode* head){
         ListNode* prev = NULL;
         while(head != NULL){
-            ListNode* next = head -> next;
+            ListNode* next = head -> next;      //more efficient
             head-> next = prev;
             prev =head;
             head = next;
@@ -34,13 +27,22 @@ public:
             slow = slow->next;
             fast = fast->next->next;
         }
-        slow = reverse(slow);
-        fast =head;
+        slow = reverse(slow);                               //playing in slow and fast is more efficient
+        fast =head;                   //reversing second half again in last is not necessary acd to given constraints
         while(slow != NULL){
         if(slow->val != fast->val) return false;
         slow = slow->next;
         fast = fast->next;
-        }
+        }  
         return true;
     }
 };
+
+
+    // ListNode* reverseList(ListNode* head) {
+    //     if (head == NULL || head->next == NULL)  return head;
+    //     ListNode* newhead = reverseList(head->next);
+    //     head->next->next = head;                                 //recursive taking more space 
+    //     head->next = NULL;
+    //     return newhead;
+    // }
